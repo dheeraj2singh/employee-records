@@ -1,0 +1,25 @@
+
+<h1>Add new employee</h1>
+<div class="submitted" *ngIf="addemployee.submitted">employee is added</div>
+<div class="formcontainer">
+   
+    <form #addemployee="ngForm" (ngSubmit)="onsubmit(employee)" novalidate >
+        <label>firstname</label><input #firstname="ngModel" required minlength="4" type="text" [(ngModel)]="employee.firstname" name="firstname">
+        <div *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)" style="color: red; margin-top: 5px;">
+             invalid first name 
+            <div *ngIf="firstname.errors?.required" style="color: red; margin-top: 5px;"> 
+                required first name </div>
+            <div *ngIf="firstname.errors?.minlength" style="color: red; margin-top: 5px;"> 
+                min length requried is 3 </div>
+        </div>
+        
+        <label>lastname</label><input #lastname="ngModel" type="text" required minlength="4" [(ngModel)]="employee.lastname" name="lastname">
+        <div *ngIf="!lastname?.valid && (lastname?.touched || lastname?.dirty)" style="color: red; margin-top: 5px;" >invalid last name</div>
+        <label>email</label><input #email="ngModel" type="email" required email [(ngModel)]="employee.email" name="email">
+       <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" style="color: red; margin-top: 5px;"> invalid email</div>
+        <button type="submit" class="btn btn-primary" [disabled]="!addemployee.valid">add-employee</button>
+        
+    </form>
+        
+</div>
+

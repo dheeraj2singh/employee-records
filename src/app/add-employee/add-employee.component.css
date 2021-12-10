@@ -1,0 +1,31 @@
+input{
+    position: relative;
+    display:block;
+    width: 20em;
+    height: inherit;
+    padding: auto;
+    margin: 1em;
+    align-content: center;
+    margin-top: 0em;
+
+}
+label{
+    margin: 1em;
+    margin-bottom: 0em;
+}
+.formcontainer{
+    align-content: center;
+    position: absolute;
+    left: 40%;
+    
+    padding: 2%;
+}
+h1{
+    text-align: center;
+}
+
+div.submitted{
+    color: darkgreen;
+    align-content: center;
+    text-align: center;
+}

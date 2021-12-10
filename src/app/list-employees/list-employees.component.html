@@ -1,0 +1,16 @@
+<table>
+    <tr>
+      
+        <th>first name</th>
+        <th>lastname</th>
+        <th>designation</th>
+    </tr>
+    
+    <tr *ngFor="let emp of emplist">
+        <td>{{emp.firstname}}</td>
+        <td>{{emp.lastname}}</td>
+        <td>{{emp.email}}</td>
+        <button type="button" (click)=delete(emp.id) >delete</button>
+        
+    </tr>
+</table>
