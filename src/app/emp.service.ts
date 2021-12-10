@@ -10,7 +10,9 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 export class EmpService {
 
    baseurl:string="http://localhost:8080/employee";
-  employees:Employee[]=[{id :1,firstname:"dheeraj",lastname:"singh", email:"dheeraj@gmail.com"}];
+  employees:Employee[]=[{id :1,firstname:"dheeraj",lastname:"singh", email:"dheeraj@gmail.com"},
+{id :2,firstname:"jay",lastname:"pande", email:"jay@gmail.com"},
+{id :2,firstname:"aman",lastname:"rohilla", email:"aman@gmail.com"}];
       len!:any;
 
  
