@@ -8,6 +8,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
+import {  HttpClientModule } from  '@angular/common/http';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +18,14 @@ import { DetailsEmployeeComponent } from './details-employee/details-employee.co
     NavBarComponent,
     ListEmployeesComponent,
     AddEmployeeComponent,
-    DetailsEmployeeComponent
+    DetailsEmployeeComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
     
   ],
   providers: [],

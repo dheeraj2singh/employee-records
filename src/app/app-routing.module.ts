@@ -1,3 +1,5 @@
+import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,8 +8,9 @@ import { ListEmployeesComponent } from './list-employees/list-employees.componen
 const routes: Routes = [
 {path:"", component:ListEmployeesComponent, pathMatch:"full" },
 {path:"list-employees", component:ListEmployeesComponent},
-{path:"add-employee", component:AddEmployeeComponent}
-
+{path:"add-employee", component:AddEmployeeComponent},
+{path:"details/:id" , component:DetailsEmployeeComponent},
+{path:"update/:id", component:UpdateEmployeeComponent}
 
 ];
 

@@ -1,16 +1,21 @@
-<table>
+<div class="text-center"><h1>List Employees</h1></div>
+
+<table class="table table-bordered table-striped table-hover" datatable>
     <tr>
-      
-        <th>first name</th>
-        <th>lastname</th>
-        <th>designation</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th class="text-info">Action</th>
+        <th class="text-danger">Action</th>
+        <th class="text-success">Action</th>
     </tr>
     
-    <tr *ngFor="let emp of emplist">
-        <td>{{emp.firstname}}</td>
-        <td>{{emp.lastname}}</td>
-        <td>{{emp.email}}</td>
-        <button type="button" (click)=delete(emp.id) >delete</button>
-        
+    <tr *ngFor="let emp of employees  | async"> 
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.phone}}</td>
+        <td><button type="button" class="btn btn-info " (click)=employeeDetails(emp.id) >Details</button></td>
+        <td><button type="button" class="btn btn-danger" (click)=deleteEmployee(emp.id) >Delete</button></td>
+        <td ><button type="button" class="btn btn-success" (click)="updateEmployee(emp.id)">Update</button></td>
     </tr>
 </table>

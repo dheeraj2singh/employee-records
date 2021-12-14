@@ -1,9 +1,9 @@
 
-<h1 class="col-md-4 mx-auto ">Add New Employee</h1>
-<div class="submitted text-success" *ngIf="addemployee.submitted">Employee is added</div>
+<h1 class="col-md-4 mx-auto ">Update Employee</h1>
+<div class="submitted text-success" *ngIf="updated">Employee is updated</div>
 <div class="col-md-6 mx-auto">
    
-    <form  #addemployee="ngForm" (ngSubmit)="onSubmit(addemployee)" novalidate >
+    <form  #updateemployee="ngForm" (ngSubmit)="onSubmit(updateemployee)" novalidate >
         <div class="form-group">
             <label class="font-weight-bold " for="name">name:</label >
             <input class="form-control col-md-6  "  #name="ngModel" required minlength="4" type="text" [(ngModel)]="employee.name" name="name">
@@ -43,15 +43,15 @@
             
         </div>
         <div class="form-group">
-        <label class="font-weight-bold">phone</label ><input maxlength="10" class="form-control col-md-6  col-ms-2 " #phone="ngModel" type="text" required minlength="10" [(ngModel)]="employee.phone" name="phone">
+        <label class="font-weight-bold">phone</label ><input class="form-control col-md-6  col-ms-2 " #phone="ngModel" type="text" required minlength="10" [(ngModel)]="employee.phone" name="phone">
     </div>
         <div *ngIf="!phone?.valid && (phone?.touched || phone?.dirty)" style="color: red; " >
             
             invalid phone
             <div *ngIf="phone.errors?.required" style="color: red; "> 
                 required  phone </div>
-            <div *ngIf="phone.errors?.minlength || phone.errors?.maxlength" style="color: red; "> 
-                 length requried is 10</div>
+            <div *ngIf="phone.errors?.minlength" style="color: red; "> 
+                min length requried is 10</div>
         
         </div>
        
@@ -67,8 +67,11 @@
                 min length requried is 4 </div>
 
         </div>
-        <button type="submit" class="btn btn-primary col-md-6   " [disabled]="!addemployee.valid">Add Employee</button>
+        <button type="submit" class="btn btn-primary col-md-6   " [disabled]="!updateemployee.valid">Update Employee</button>
+        <br> <button (click)="list()" class="btn btn-default col-md-6 my-2 ">Back</button>
+        
     </form>
+    
         
 </div>
 
