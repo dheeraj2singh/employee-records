@@ -23,23 +23,28 @@ export class AddEmployeeComponent implements OnInit {
     this.employee = new Employee();
   }
 
-  save() {
+  save(addform:NgForm) {
     this.addempServices.createEmployee(this.employee)
       .subscribe(data => console.log(data), error => console.log(error));
     this.employee = new Employee();
+    addform.resetForm();
     this.gotoList();
+    
   }
 
   onSubmit(addform:NgForm) {
     this.submitted = true;
-    alert(" Employee added successfully")
-    this.save();  
+    this.save(addform); 
+    
     
   }
 
   gotoList() {
     
-    this.router.navigate(['list-employees']);
+    this.router.navigate(["/",'list-employees']);
   }
-
+  back()
+{
+  this.gotoList();
+}
 }

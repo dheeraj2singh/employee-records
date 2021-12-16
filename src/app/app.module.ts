@@ -10,6 +10,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
 import {  HttpClientModule } from  '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -25,8 +26,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

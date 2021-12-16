@@ -1,6 +1,6 @@
 
 <h1 class="col-md-4 mx-auto ">Add New Employee</h1>
-<div class="submitted text-success" *ngIf="addemployee.submitted">Employee is added</div>
+<div class="submitted text-success text-center" *ngIf="submitted"><h2>Employee is added</h2></div>
 <div class="col-md-6 mx-auto">
    
     <form  #addemployee="ngForm" (ngSubmit)="onSubmit(addemployee)" novalidate >
@@ -9,7 +9,7 @@
             <input class="form-control col-md-6  "  #name="ngModel" required minlength="4" type="text" [(ngModel)]="employee.name" name="name">
         </div>
         <div *ngIf="!name?.valid && (name?.touched || name?.dirty)" style="color: red; ">
-             invalid  name 
+            
             
             <div *ngIf="name.errors?.required" style="color: red; "> 
                 required  name </div>
@@ -24,7 +24,7 @@
       </div>
         <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" style="color: red; ">
         
-        invalid email
+            invalid E-mail
         <div *ngIf="email.errors?.required" style="color: red; "> 
             required  email </div>
         
@@ -35,7 +35,7 @@
        <input class="form-control col-md-6  col-ms-2 " #address="ngModel" type="text" required minlength="4" [(ngModel)]="employee.address" name="address">
         </div>
        <div *ngIf="!address?.valid && (address?.touched || address?.dirty)" style="color: red; " >
-            invalid address
+           
             <div *ngIf="address.errors?.required" style="color: red; "> 
                 required  address </div>
             <div *ngIf="address.errors?.minlength" style="color: red; "> 
@@ -47,7 +47,7 @@
     </div>
         <div *ngIf="!phone?.valid && (phone?.touched || phone?.dirty)" style="color: red; " >
             
-            invalid phone
+         
             <div *ngIf="phone.errors?.required" style="color: red; "> 
                 required  phone </div>
             <div *ngIf="phone.errors?.minlength || phone.errors?.maxlength" style="color: red; "> 
@@ -60,7 +60,7 @@
         </div>
         <div *ngIf="!salary?.valid && (salary?.touched || salary?.dirty)" style="color: red; " >
             
-            invalid  salary
+       
             <div *ngIf="salary.errors?.required" style="color: red; "> 
                 required  salary </div>
             <div *ngIf="salary.errors?.minlength" style="color: red; "> 
@@ -68,6 +68,7 @@
 
         </div>
         <button type="submit" class="btn btn-primary col-md-6   " [disabled]="!addemployee.valid">Add Employee</button>
+       <br> <!--<button type="button" class="btn btn-default col-md-6 my-2" (click)="back()">back </button>-->
     </form>
         
 </div>

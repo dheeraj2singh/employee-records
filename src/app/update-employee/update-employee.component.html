@@ -1,6 +1,6 @@
 
 <h1 class="col-md-4 mx-auto ">Update Employee</h1>
-<div class="submitted text-success" *ngIf="updated">Employee is updated</div>
+<div class="submitted text-success text-center" *ngIf="updated"><h2>Employee is updated</h2></div>
 <div class="col-md-6 mx-auto">
    
     <form  #updateemployee="ngForm" (ngSubmit)="onSubmit(updateemployee)" novalidate >
@@ -68,7 +68,7 @@
 
         </div>
         <button type="submit" class="btn btn-primary col-md-6   " [disabled]="!updateemployee.valid">Update Employee</button>
-        <br> <button (click)="list()" class="btn btn-default col-md-6 my-2 ">Back</button>
+        <br>
         
     </form>
     

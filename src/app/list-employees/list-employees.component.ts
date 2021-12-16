@@ -5,6 +5,7 @@ import { Employee } from '../employee.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-list-employees',
   templateUrl: './list-employees.component.html',
@@ -14,8 +15,10 @@ export class ListEmployeesComponent implements OnInit {
   employees!: Observable<Employee[]>;
 
   constructor(private employeeService: EmpService,
-    private router: Router) {}
-
+    private router: Router) {
+     
+    }
+    
   ngOnInit() {
     this.reloadData();
   }
@@ -42,4 +45,5 @@ export class ListEmployeesComponent implements OnInit {
   updateEmployee(id:number){
     this.router.navigate(['update',id]);
   }
+   
 }

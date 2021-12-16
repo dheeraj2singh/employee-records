@@ -26,19 +26,21 @@ export class UpdateEmployeeComponent implements OnInit {
     .subscribe(data => {
       console.log(data)
       this.employee = data;
+      
     }, error => console.log(error));
     this.updated=false;
   }
 
   onSubmit(updateform:NgForm){
     console.log(this.employee);
-        this.updateservice.updateEmployee(this.id,this.employee).subscribe();
+        this.updateservice.updateEmployee(this.id,this.employee).subscribe(data =>this.list());
         this.updated=true;
-        alert("employee is updated")
-        this.list();
+        
+        
+        
   }
 
   list(){
-    this.router.navigate(['list-employees']);
+    this.router.navigate(["/",'list-employees']);
   }
 }
