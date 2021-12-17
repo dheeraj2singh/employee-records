@@ -1,5 +1,7 @@
 <div class="text-center"><h1>List Employees</h1></div>
+<h2 *ngIf=result>data addded</h2>
 <div><button type="button" class="btn btn-success" (click)="reloadData()">update list</button></div>
+<div *ngIf="responcedeleted"><h1>{{responcedata}}</h1></div>
 
 <table  class="table table-bordered table-striped hover" datatables>
     <tr>

@@ -1,5 +1,5 @@
 import { EmpService } from './../emp.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from '../employee.model';
 import { Observable } from 'rxjs';
@@ -13,6 +13,10 @@ import { Router } from '@angular/router';
 })
 export class ListEmployeesComponent implements OnInit {
   employees!: Observable<Employee[]>;
+  @Input() result!:boolean;
+  responcedeleted!:any;
+  responcedata!:any;
+  
 
   constructor(private employeeService: EmpService,
     private router: Router) {
@@ -32,6 +36,8 @@ export class ListEmployeesComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.responcedata=data;
+          this.responcedeleted=true;
           this.reloadData();
         },
         error => console.log(error));

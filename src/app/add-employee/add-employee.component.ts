@@ -1,6 +1,6 @@
 
 import { Employee } from './../employee.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { EmpService } from './../emp.service';
 import { Router } from '@angular/router';
@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class AddEmployeeComponent implements OnInit {
   employee:Employee=new Employee();
   submitted=false;
+   
+  @Output() result!:string;
 
   constructor(private addempServices: EmpService,
     private router: Router) { }
@@ -25,10 +27,10 @@ export class AddEmployeeComponent implements OnInit {
 
   save(addform:NgForm) {
     this.addempServices.createEmployee(this.employee)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data=> {console.log(data), this.result=data,this.gotoList()},error => console.log(error));
     this.employee = new Employee();
     addform.resetForm();
-    this.gotoList();
+    
     
   }
 
@@ -43,8 +45,7 @@ export class AddEmployeeComponent implements OnInit {
     
     this.router.navigate(["/",'list-employees']);
   }
-  back()
-{
-  this.gotoList();
+
 }
-}
+
+

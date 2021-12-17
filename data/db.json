@@ -1,15 +1,7 @@
 {
   "employee": [
     {
-      "id": 1,
-      "name": "dheeraj ",
-      "address": "delhi ",
-      "phone": "1234567890",
-      "email": "Abc@gmail.com",
-      "salary": "12222"
-    },
-    {
-      "name": "jahnvi ",
+      "name": "jahnvi joshi",
       "email": "jahnvi@gmail.com",
       "address": "amritsar",
       "phone": "7878787878",
@@ -31,6 +23,22 @@
       "phone": "7887788787",
       "salary": "7877887",
       "id": 5
+    },
+    {
+      "name": "test test",
+      "email": "tes@hhg",
+      "address": "gghghgh",
+      "phone": "5565656566",
+      "salary": "566565",
+      "id": 6
+    },
+    {
+      "name": "test2",
+      "email": "ggh@hgh",
+      "address": "uyyhhh",
+      "phone": "7878787878",
+      "salary": "787878",
+      "id": 7
     }
   ]
 }

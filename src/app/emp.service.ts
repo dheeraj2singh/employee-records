@@ -23,10 +23,10 @@ export class EmpService {
     return this.http.get(`${this.testUrl}/${id}`);
   }
 
-  createEmployee(employee: Object): Observable<Object> {
+  createEmployee(employee: Object): Observable<any> {
     console.log(employee);
     // return this.http.post(`${this.baseUrl}/`, employee);
-    return this.http.post(`${this.testUrl}/`, employee);
+    return this.http.post(`${this.testUrl}/`, employee, { responseType: 'text' });
   }
 
   updateEmployee(id: number, value: Object): Observable<Object> {
