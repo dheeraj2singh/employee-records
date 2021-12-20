@@ -9,7 +9,7 @@
       "id": 2
     },
     {
-      "name": "kanika",
+      "name": "kanika pathak",
       "email": "kanika@uhhjjkj",
       "address": "uiuiuiui",
       "phone": "8898989897",
@@ -18,27 +18,20 @@
     },
     {
       "name": "dheeraj rathore",
-      "email": "rathore@yt6",
-      "address": "ghggggh",
-      "phone": "7887788787",
+      "email": "rathore@gail.com",
+      "address": "delhi",
+      "phone": "78877887878",
       "salary": "7877887",
       "id": 5
     },
     {
-      "name": "test test",
-      "email": "tes@hhg",
-      "address": "gghghgh",
-      "phone": "5565656566",
-      "salary": "566565",
+      "name": "test",
+      "email": "hgytg@676",
+      "address": "yuyuyuyu",
+      "phone": "y777878888",
+      "designationid": 1,
+      "salary": "6766767",
       "id": 6
-    },
-    {
-      "name": "test2",
-      "email": "ggh@hgh",
-      "address": "uyyhhh",
-      "phone": "7878787878",
-      "salary": "787878",
-      "id": 7
     }
   ]
 }

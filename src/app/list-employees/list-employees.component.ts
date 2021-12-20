@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Employee } from '../employee.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import {Sort} from '@angular/material/sort';
 
 
 @Component({
@@ -16,21 +17,26 @@ export class ListEmployeesComponent implements OnInit {
   @Input() result!:boolean;
   responcedeleted!:any;
   responcedata!:any;
+  sortedata!:Employee[];
   
-
+// constructor which initilaze the objects of classes
   constructor(private employeeService: EmpService,
     private router: Router) {
      
     }
     
+    // init method which initilize when lis page render to router outlet
   ngOnInit() {
     this.reloadData();
   }
 
+  // function which refresh the data (e.g., in case of updation)
   reloadData() {
     this.employees = this.employeeService.getEmployeesList();
   }
 
+
+  // function to delete the employee
   deleteEmployee(id: number) {
     this.employeeService.deleteEmployee(id)
       .subscribe(
@@ -44,12 +50,19 @@ export class ListEmployeesComponent implements OnInit {
         
   }
 
+  // function to navigate the router to details page
+
   employeeDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
+
+  // function to navigate the router to update component
   updateEmployee(id:number){
     this.router.navigate(['update',id]);
   }
-   
+    
+  sortData(sort:Sort){
+
+  }
 }

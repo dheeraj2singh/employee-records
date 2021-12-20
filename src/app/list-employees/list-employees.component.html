@@ -1,11 +1,11 @@
 <div class="text-center"><h1>List Employees</h1></div>
 <h2 *ngIf=result>data addded</h2>
 <div><button type="button" class="btn btn-success" (click)="reloadData()">update list</button></div>
-<div *ngIf="responcedeleted"><h1>{{responcedata}}</h1></div>
+<div *ngIf="responcedeleted"><h1>deleted</h1></div>
 
-<table  class="table table-bordered table-striped hover" datatables>
+<table matSort  class="table table-bordered table-striped hover" (matSortChange)="sortData($event)">
     <tr>
-        <th>Id</th>
+        <th mat-sort-header="id" >Id </th>
         <th>Name</th>
         <th>Phone</th>
         <th class="text-info">Action</th>

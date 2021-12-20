@@ -54,6 +54,14 @@
                  length requried is 10</div>
         
         </div>
+
+        <div class="form-group">
+        <label for="designation"></label>
+   <select  id="" class="browser-default custom-select col-md-6" [(ngModel)]="employee.designationid" name="desig_id">
+            <option *ngFor="let designation of designations | async " [ngValue]="designation.desig_id">{{designation.desig_name}}</option>
+            
+        </select>
+    </div>
        
         <div class="form-group">
         <label class="font-weight-bold" >salary</label ><input class="form-control col-md-6  col-ms-2  " #salary="ngModel" type="text" required minlength="4" [(ngModel)]="employee.salary" name="salary">

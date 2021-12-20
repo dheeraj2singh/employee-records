@@ -18,7 +18,7 @@ export class UpdateEmployeeComponent implements OnInit {
    
    
   }
-
+// init method which display the data in the html input fields when the method called
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
@@ -31,15 +31,18 @@ export class UpdateEmployeeComponent implements OnInit {
     this.updated=false;
   }
 
+
+    // this is onsubmit method which is binded to the form
   onSubmit(updateform:NgForm){
     console.log(this.employee);
-        this.updateservice.updateEmployee(this.id,this.employee).subscribe(data =>this.list());
+        this.updateservice.updateEmployee(this.id,this.employee).subscribe(data =>{this.list()});
         this.updated=true;
         
         
         
   }
 
+  // na vigate to the list component
   list(){
     this.router.navigate(["/",'list-employees']);
   }

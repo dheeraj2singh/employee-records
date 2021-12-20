@@ -11,6 +11,8 @@ import { DetailsEmployeeComponent } from './details-employee/details-employee.co
 import {  HttpClientModule } from  '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { DataTablesModule } from 'angular-datatables';
+import { SearchEmployeeComponent } from './search-employee/search-employee.component';
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -20,14 +22,17 @@ import { DataTablesModule } from 'angular-datatables';
     ListEmployeesComponent,
     AddEmployeeComponent,
     DetailsEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    SearchEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    MatSortModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

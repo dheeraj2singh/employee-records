@@ -5,5 +5,6 @@ export class Employee {
     email!: string;
     address!:string;
     salary!:number;
+    designationid!:number;
 
 }
