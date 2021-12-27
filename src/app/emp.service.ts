@@ -14,9 +14,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpService {
  
-  url:string="http://localhost:3001/designations";
+  url:string="http://localhost:8080/Designation";
   //  baseUrl:string="http://127.0.0.1:8080/employee";
-   testUrl:string="http://localhost:3000/employee";
+   testUrl:string="http://localhost:8080/employee";
   // employees:Employee[]=[{id :1,name:"dheeraj",address:"delhi", email:"dheeraj@gmail.com",salary:25000,phone:1234567890},];
  
 
@@ -32,7 +32,7 @@ export class EmpService {
   }
  // to create the employee
   createEmployee(employee: Object): Observable<any> {
-    console.log(employee);
+    
     // return this.http.post(`${this.baseUrl}/`, employee);
     return this.http.post(`${this.testUrl}/`, employee, { responseType: 'text' });
   }
@@ -54,7 +54,7 @@ export class EmpService {
   }
 
   getDesignation(): Observable<any>{
-    console.log(this.http.get(`${this.url}/`));
+    
     return this.http.get(`${this.url}/`);
   }
  

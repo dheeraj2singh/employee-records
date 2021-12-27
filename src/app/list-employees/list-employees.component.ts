@@ -1,10 +1,9 @@
+import { Employee } from './../employee.model';
 import { EmpService } from './../emp.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Employee } from '../employee.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import {Sort} from '@angular/material/sort';
 
 
 @Component({
@@ -14,10 +13,13 @@ import {Sort} from '@angular/material/sort';
 })
 export class ListEmployeesComponent implements OnInit {
   employees!: Observable<Employee[]>;
-  @Input() result!:boolean;
+  searchterm!:any;
   responcedeleted!:any;
   responcedata!:any;
-  sortedata!:Employee[];
+ p:number=1;
+ key!:string;
+ reverse:boolean=false;
+ 
   
 // constructor which initilaze the objects of classes
   constructor(private employeeService: EmpService,
@@ -41,7 +43,7 @@ export class ListEmployeesComponent implements OnInit {
     this.employeeService.deleteEmployee(id)
       .subscribe(
         data => {
-          console.log(data);
+         
           this.responcedata=data;
           this.responcedeleted=true;
           this.reloadData();
@@ -61,8 +63,14 @@ export class ListEmployeesComponent implements OnInit {
   updateEmployee(id:number){
     this.router.navigate(['update',id]);
   }
-    
-  sortData(sort:Sort){
+   
+  sortData(key:string){
+    this.key=key;
+    this.reverse=!this.reverse;
 
   }
+
+
+ 
+  
 }

@@ -1,3 +1,4 @@
+import { Designation } from './designation.model';
 export class Employee {
     id!:number;
     name!: string;
@@ -5,6 +6,6 @@ export class Employee {
     email!: string;
     address!:string;
     salary!:number;
-    designationid!:number;
+   designation!:Designation;
 
 }

@@ -1,14 +1,6 @@
 {
   "employee": [
     {
-      "name": "jahnvi joshi",
-      "email": "jahnvi@gmail.com",
-      "address": "amritsar",
-      "phone": "7878787878",
-      "salary": "778788",
-      "id": 2
-    },
-    {
       "name": "kanika pathak",
       "email": "kanika@uhhjjkj",
       "address": "uiuiuiui",
@@ -25,13 +17,29 @@
       "id": 5
     },
     {
-      "name": "test",
-      "email": "hgytg@676",
-      "address": "yuyuyuyu",
-      "phone": "y777878888",
-      "designationid": 1,
-      "salary": "6766767",
+      "name": "test1",
+      "email": "test1@gmail.com",
+      "address": "hhhhhjj",
+      "phone": "7878767655",
+      "designation_id": 1,
+      "salary": "6676767",
       "id": 6
+    },
+    {
+      "name": "test2",
+      "email": "test2@gmail.com",
+      "address": "ggghghg",
+      "phone": "7877878787",
+      "designation_id": 1,
+      "salary": "77878787",
+      "id": 7
+    }
+  ],
+  "designations": [
+    {
+      "id": 1,
+      "desig_name": "manager"
+     
     }
   ]
 }

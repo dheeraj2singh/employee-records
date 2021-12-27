@@ -1,19 +1,22 @@
 <div class="text-center"><h1>List Employees</h1></div>
-<h2 *ngIf=result>data addded</h2>
-<div><button type="button" class="btn btn-success" (click)="reloadData()">update list</button></div>
+
 <div *ngIf="responcedeleted"><h1>deleted</h1></div>
 
-<table matSort  class="table table-bordered table-striped hover" (matSortChange)="sortData($event)">
+<i class='fa fa-search mx-3'></i><input class="form-control" type="text" name="searchterm" [(ngModel)]= "searchterm" class="col-md-4"  placeholder="Enter keyword  to Search">
+
+<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="p= $event"></pagination-controls>
+
+<table  class="table table-bordered table-striped hover">
     <tr>
-        <th mat-sort-header="id" >Id </th>
-        <th>Name</th>
+        <th (click)="sortData('id')" >Id <i class="fa fa-fw fa-sort"></i></th>
+        <th (click)="sortData('name')" > Name<i class="fa fa-fw fa-sort"></i></th>
         <th>Phone</th>
         <th class="text-info">Action</th>
         <th class="text-danger">Action</th>
         <th class="text-success">Action</th>
     </tr>
     
-    <tr *ngFor="let emp of employees  | async"> 
+    <tr *ngFor="let emp of employees | async | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage:4,currentPage:p}  "> 
         <td>{{emp.id}}</td>
         <td>{{emp.name}}</td>
         <td>{{emp.phone}}</td>
@@ -22,3 +25,4 @@
         <td ><button type="button" class="btn btn-success" (click)="updateEmployee(emp.id)">Update</button></td>
     </tr>
 </table>
+<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="p= $event"></pagination-controls>
