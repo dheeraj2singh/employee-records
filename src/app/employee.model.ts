@@ -1,6 +1,11 @@
+import { Designation } from './designation.model';
 export class Employee {
-    id!:any;
-    firstname: string="";
-    lastname: string="";
-    email: string="";
+    id!:number;
+    name!: string;
+    phone!:Number;
+    email!: string;
+    address!:string;
+    salary!:number;
+   designation!:Designation;
+
 }

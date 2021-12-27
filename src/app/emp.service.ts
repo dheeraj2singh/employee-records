@@ -1,37 +1,61 @@
+import { Designation } from './designation.model';
 
 import { Injectable } from '@angular/core';
 import { Employee } from './employee.model';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { observable, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
+
+// this is a  employee service class
 @Injectable({
   providedIn: 'root'
 })
 export class EmpService {
-
-   baseurl:string="http://localhost:8080/employee";
-  employees:Employee[]=[{id :1,firstname:"dheeraj",lastname:"singh", email:"dheeraj@gmail.com"},
-{id :2,firstname:"jay",lastname:"pande", email:"jay@gmail.com"},
-{id :2,firstname:"aman",lastname:"rohilla", email:"aman@gmail.com"}];
-      len!:any;
-
  
-  constructor() { }
+  url:string="http://localhost:8080/Designation";
+  //  baseUrl:string="http://127.0.0.1:8080/employee";
+   testUrl:string="http://localhost:8080/employee";
+  // employees:Employee[]=[{id :1,name:"dheeraj",address:"delhi", email:"dheeraj@gmail.com",salary:25000,phone:1234567890},];
+ 
 
-  public addEmployee(emp:Employee){
-    console.log("addemployee");
-     this.len=this.employees.length;
-     emp.id=4;
-    this.employees.push(emp);
-    console.log(this.employees);
+  constructor(private http:HttpClient) {
+    
+    
+   }
 
+  // for get  Employee
+  getEmployee(id: number): Observable<any> {
+    // return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.testUrl}/${id}`);
+  }
+ // to create the employee
+  createEmployee(employee: Object): Observable<any> {
+    
+    // return this.http.post(`${this.baseUrl}/`, employee);
+    return this.http.post(`${this.testUrl}/`, employee, { responseType: 'text' });
   }
 
-  getAll(){
-    return this.employees;
+   // to update the details
+  updateEmployee(id: number, value: Object): Observable<Object> {
+    // return this.http.post(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.testUrl}/${id}`, value);
   }
-  get(id:any){
-     return 0;
+// to delete tthe employee
+  deleteEmployee(id: number): Observable<any> {
+    // return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`${this.testUrl}/${id}`, { responseType: 'text' });
+  }
+ // to get the list of employee
+  getEmployeesList(): Observable<any> {
+    // return this.http.get(`${this.baseUrl}/`);
+    return this.http.get(`${this.testUrl}/`);
+  }
 
+  getDesignation(): Observable<any>{
+    
+    return this.http.get(`${this.url}/`);
   }
+ 
 }
