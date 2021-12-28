@@ -4,8 +4,16 @@
 
 <i class='fa fa-search mx-3'></i><input class="form-control" type="text" name="searchterm" [(ngModel)]= "searchterm" class="col-md-4"  placeholder="Enter keyword  to Search">
 
-<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="p= $event"></pagination-controls>
-
+<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="handlePageChange($event)"></pagination-controls>
+<div class="form-group col-sm-2 mx-auto" >
+    <label for="sel1">items to show :</label>
+    <select (change)="onChange()" class="form-control" id="" [(ngModel)]="itemsPerPage">
+      <option value="1" >1</option>
+      <option value=2>2</option>
+      <option value="3">3</option>
+      <option selected value="4" >4</option>
+    </select>
+  </div>
 <table  class="table table-bordered table-striped hover">
     <tr>
         <th (click)="sortData('id')" >Id <i class="fa fa-fw fa-sort"></i></th>
@@ -16,7 +24,7 @@
         <th class="text-success">Action</th>
     </tr>
     
-    <tr *ngFor="let emp of employees | async | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage:4,currentPage:p}  "> 
+    <tr *ngFor="let emp of employees  | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage,currentPage,totalItems}  "> 
         <td>{{emp.id}}</td>
         <td>{{emp.name}}</td>
         <td>{{emp.phone}}</td>
@@ -25,4 +33,4 @@
         <td ><button type="button" class="btn btn-success" (click)="updateEmployee(emp.id)">Update</button></td>
     </tr>
 </table>
-<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="p= $event"></pagination-controls>
+<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="handlePageChange($event)"></pagination-controls>

@@ -1,18 +1,20 @@
 <!-- Form to Grab new EMPLOYEE with Validations using Templete Validations -->
 <button style="max-width:20%" class="btn btn-info" routerLink="/">Back</button>
-
-<form style="margin-top: 0%; "  #adddesig="ngForm" (submit)= "submit()" >
+<div class="col-md-8 mx-auto">
+<form   #adddesig="ngForm" (submit)= "submit()" >
   
-  <div class="mb-3">
-    <label class="form-label">Designation Name</label>
-    <input type="text" required #name="ngModel" class="form-control" name="Name" [(ngModel)]= "desig.name">
+  <h1 class="col-md-4 mx-auto">Add designation</h1>
+  <div class=" ">
+    <label class="form-label font-weight-bold col-md-4 mx-auto">Designation Name :  </label>
+    <input type="text" required #name="ngModel" class="form-control col-md-4 mxx-auto my-2" name="Name" [(ngModel)]= "desig.name">
     <span style="color:red" *ngIf="name.invalid && name.touched">Enter Desgination</span>
     
   </div>
   
-    <button [disabled]="adddesig.invalid"  type="submit" class="btn btn-success">Add</button>
+  <button [disabled]="adddesig.invalid"  type="submit" class="btn btn-success col-md-4 mx-auto">Add</button>
   </form>
   
+</div>
 
   <table class="container">
     <thead style="text-align: center;">
@@ -33,7 +35,7 @@
    <!-- Action Buttons created for Viewing, updating and Deleting an Employee -->
   
         <td>
-          <a  class="btn btn-del" (click)= "delete(desig.id)">Remove</a>
+          <a  class="btn btn-danger" (click)= "delete(desig.id)">Remove</a>
         </td>
       </tr>
     </tbody>

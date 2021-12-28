@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-list-employees',
   templateUrl: './list-employees.component.html',
@@ -19,8 +20,14 @@ export class ListEmployeesComponent implements OnInit {
  p:number=1;
  key!:string;
  reverse:boolean=false;
- 
-  
+ currentPage:number=0;
+ totalPages!:number;
+ itemsPerPage:number=4;
+ totalItems!:number;
+ cpage:number=0;
+
+
+
 // constructor which initilaze the objects of classes
   constructor(private employeeService: EmpService,
     private router: Router) {
@@ -34,7 +41,13 @@ export class ListEmployeesComponent implements OnInit {
 
   // function which refresh the data (e.g., in case of updation)
   reloadData() {
-    this.employees = this.employeeService.getEmployeesList();
+    this.employeeService.getEmployeesList(this.cpage,this.itemsPerPage).subscribe(data => {
+      this.employees=data["content"],
+      this.itemsPerPage=data["size"],
+      this.totalPages=data["totalPages"],
+      this.totalItems=data["totalElements"],console.log(data);
+      
+    });
   }
 
 
@@ -71,6 +84,16 @@ export class ListEmployeesComponent implements OnInit {
   }
 
 
+  handlePageChange(event:any){
+
+    console.log(event);
+    this.cpage=event-1;
+    this.currentPage=event;
+    this.reloadData()
+    console.log(this.itemsPerPage)
+  }
  
-  
+  onChange(){
+    this.reloadData();
+  }
 }

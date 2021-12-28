@@ -48,9 +48,9 @@ export class EmpService {
     return this.http.delete(`${this.testUrl}/${id}`, { responseType: 'text' });
   }
  // to get the list of employee
-  getEmployeesList(): Observable<any> {
+  getEmployeesList(page:number,itemsPerPage:number): Observable<any> {
     // return this.http.get(`${this.baseUrl}/`);
-    return this.http.get(`${this.testUrl}/`);
+    return this.http.get(`${this.testUrl}/list/`+page+'/items/'+itemsPerPage);
   }
 
   getDesignation(): Observable<any>{
