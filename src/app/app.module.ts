@@ -10,11 +10,12 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
 import {  HttpClientModule } from  '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
-import { DataTablesModule } from 'angular-datatables';
+
 import {MatSortModule} from '@angular/material/sort';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {Ng2SearchPipeModule} from 'ng2-search-filter'; 
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { AddDesignationComponent } from './add-designation/add-designation.component'; 
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     AddEmployeeComponent,
     DetailsEmployeeComponent,
     UpdateEmployeeComponent,
+    AddDesignationComponent,
   ],
   imports: [
     Ng2SearchPipeModule,
@@ -34,7 +36,6 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule,
     MatSortModule
 
   ],
