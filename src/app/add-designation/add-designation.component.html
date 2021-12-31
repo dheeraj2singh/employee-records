@@ -1,0 +1,43 @@
+<!-- Form to Grab new EMPLOYEE with Validations using Templete Validations -->
+<button style="max-width:20%" class="btn btn-info" routerLink="/">Back</button>
+<div class="col-md-8 mx-auto">
+<form   #adddesig="ngForm" (submit)= "submit()" >
+  
+  <h1 class="col-md-4 mx-auto">Add designation</h1>
+  <div class=" ">
+    <label class="form-label font-weight-bold col-md-4 mx-auto">Designation Name :  </label>
+    <input type="text" required #name="ngModel" class="form-control col-md-4 mxx-auto my-2" name="Name" [(ngModel)]= "desig.name">
+    <span style="color:red" *ngIf="name.invalid && name.touched">Enter Desgination</span>
+    
+  </div>
+  
+  <button [disabled]="adddesig.invalid"  type="submit" class="btn btn-success col-md-4 mx-auto">Add</button>
+  </form>
+  
+</div>
+
+  <table class="container">
+    <thead style="text-align: center;">
+      <tr>
+        <th (click)= "sort('id')">#<i class="fa fa-fw fa-sort"></i></th>
+        <th (click)= "sort('name')">Designation Name<i class="fa fa-fw fa-sort"></i></th>
+        <th>Action</th>
+  
+      </tr>
+    </thead>
+    <tbody style="text-align: center;"> 
+      <!-- For loop for employee basic Information -->
+      <tr *ngFor= "let desig of desigList| async  | orderBy:key:reverse   ">
+        <td>{{desig.id}}</td>
+        <td>{{desig.name}}</td>
+        
+  
+   <!-- Action Buttons created for Viewing, updating and Deleting an Employee -->
+  
+        <td>
+          <a  class="btn btn-danger" (click)= "delete(desig.id)">Remove</a>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>

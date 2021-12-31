@@ -1,0 +1,43 @@
+<!-- Form to Grab new EMPLOYEE with Validations using Templete Validations -->
+<button style="max-width:20%" class="btn btn-info" routerLink="/">Back</button>
+<div class="col-md-8 mx-auto">
+<form   #addcertification="ngForm" (submit)= "submit()" >
+  
+  <h1 class="col-md-4 mx-auto">Add Certification</h1>
+  <div class=" ">
+    <label class="form-label font-weight-bold col-md-4 mx-auto">Certification  Name :  </label>
+    <input type="text" required #name="ngModel" class="form-control col-md-4 mxx-auto my-2" name="Name" [(ngModel)]= "cert.name">
+    <span style="color:red" *ngIf="name.invalid && name.touched">Enter certification</span>
+    
+  </div>
+  
+  <button [disabled]="addcertification.invalid"  type="submit" class="btn btn-success col-md-4 mx-auto">Add</button>
+  </form>
+  <br><br>
+</div>
+
+  <table class="container">
+    <thead style="text-align: center;">
+      <tr>
+        <th (click)= "sort('id')">#<i class="fa fa-fw fa-sort"></i></th>
+        <th (click)= "sort('name')">certification Name<i class="fa fa-fw fa-sort"></i></th>
+        <th>Action</th>
+  
+      </tr>
+    </thead>
+    <tbody style="text-align: center;"> 
+      <!-- For loop for employee basic Information -->
+      <tr *ngFor= "let certification of certifications | async  | orderBy:key:reverse   ">
+        <td>{{certification.id}}</td>
+        <td>{{certification.name}}</td>
+        
+  
+   <!-- Action Buttons created for Viewing, updating and Deleting an Employee -->
+  
+        <td>
+          <a  class="btn btn-danger" (click)= "delete(certification.id)">Remove</a>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
