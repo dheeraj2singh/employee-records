@@ -1,3 +1,4 @@
+import { Certification } from './../certification.model';
 import { EmpService } from './../emp.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class DetailsEmployeeComponent implements OnInit {
 
   // model object 
   employee!: Employee;
+  tempCert:Certification[]=[];
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: EmpService) { }
@@ -32,13 +34,16 @@ export class DetailsEmployeeComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
         this.employee = data;
+        this.tempCert=this.employee.certificates;
       }, error => console.log(error));
   }
 
    // function  which navigate to the lis page
 
   list(){
+
     this.router.navigate(['list-employees']);
   }
+
 
 }

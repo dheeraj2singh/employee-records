@@ -1,3 +1,5 @@
+import { SearchComponent } from './search/search.component';
+import { AddCertificationComponent } from './add-certification/add-certification.component';
 import { DetailsEmployeeComponent } from './details-employee/details-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
@@ -12,7 +14,9 @@ const routes: Routes = [
 {path:"add-employee", component:AddEmployeeComponent},
 {path:"details/:id" , component:DetailsEmployeeComponent},
 {path:"update/:id", component:UpdateEmployeeComponent},
-{path:"add-designation", component:AddDesignationComponent}
+{path:"add-designation", component:AddDesignationComponent},
+{path:"add-certification" , component:AddCertificationComponent},
+{path:"search", component:SearchComponent}
 
 ];
 

@@ -1,12 +1,14 @@
 
 <h1 class="col-md-4 mx-auto ">Update Employee</h1>
 <div class="submitted text-success text-center" *ngIf="updated"><h2>Employee is updated</h2></div>
-<div class="col-md-6 mx-auto">
+<div class="col-md-12 ">
    
     <form  #updateemployee="ngForm" (ngSubmit)="onSubmit(updateemployee)" novalidate >
-        <div class="form-group">
+        <div class="row">
+            <div class="col ">
+        <div class="form-group float-right  col-md-6">
             <label class="font-weight-bold " for="name">name:</label >
-            <input class="form-control col-md-6  "  #name="ngModel" required minlength="4" type="text" [(ngModel)]="employee.name" name="name">
+            <input class="form-control"  #name="ngModel" required minlength="4" type="text" [(ngModel)]="employee.name" name="name">
         </div>
         <div *ngIf="!name?.valid && (name?.touched || name?.dirty)" style="color: red; ">
              invalid  name 
@@ -17,9 +19,9 @@
                 min length requried is 4 </div>
      
             </div>
-            <div class="form-group">
+            <div class="form-group float-right col-md-6">
         <label class="font-weight-bold">email</label >
-            <input class="form-control col-md-6  col-ms-2 " #email="ngModel" type="email" required email [(ngModel)]="employee.email" name="email">
+            <input class="form-control " #email="ngModel" type="email" required email [(ngModel)]="employee.email" name="email">
       
       </div>
         <div *ngIf="!email?.valid && (email?.touched || email?.dirty)" style="color: red; ">
@@ -30,9 +32,9 @@
         
     </div>
 
-    <div class="form-group">
+    <div class="form-group float-right col-md-6">
        <label  class="font-weight-bold">address</label >
-       <input class="form-control col-md-6  col-ms-2 " #address="ngModel" type="text" required minlength="4" [(ngModel)]="employee.address" name="address">
+       <input class="form-control col  col-ms-2 " #address="ngModel" type="text" required minlength="4" [(ngModel)]="employee.address" name="address">
         </div>
        <div *ngIf="!address?.valid && (address?.touched || address?.dirty)" style="color: red; " >
             invalid address
@@ -42,8 +44,8 @@
                 min length requried is 4 </div>
             
         </div>
-        <div class="form-group">
-        <label class="font-weight-bold">phone</label ><input class="form-control col-md-6  col-ms-2 " #phone="ngModel" type="text" required minlength="10" [(ngModel)]="employee.phone" name="phone">
+        <div class="form-group float-right col-md-6">
+        <label class="font-weight-bold">phone</label ><input class="form-control col  col-ms-2 " #phone="ngModel" type="text" required minlength="10" [(ngModel)]="employee.phone" name="phone">
     </div>
         <div *ngIf="!phone?.valid && (phone?.touched || phone?.dirty)" style="color: red; " >
             
@@ -54,32 +56,75 @@
                 min length requried is 10</div>
         
         </div>
-        <div class="form-group">
+        
+       
+        
+        <br>
+
+        </div>
+    <div class="col ">
+       
+
+       
+
+        <div class="form-group float-left col-md-6">
             <label for="designation" class="font-weight-bold" >Designation</label><br>
-       <select  id="" class="browser-default custom-select col-md-6" [(ngModel)]="employee.designation"  name="id">
-           <option value="--select--" disabled selected>--select--</option>
+       <select  id="" class="browser-default custom-select col" [(ngModel)]="employee.designation"  name="id">
+           <option value="--select--" disabled >--select--</option>
                 <option *ngFor="let designation of designations | async " [ngValue]="designation">{{designation && designation.name}}</option>
                 
             </select>
         </div>
        
-        <div class="form-group">
-        <label class="font-weight-bold" >salary</label ><input class="form-control col-md-6  col-ms-2  " #salary="ngModel" type="text" required minlength="4" [(ngModel)]="employee.salary" name="salary">
-        </div>
-        <div *ngIf="!salary?.valid && (salary?.touched || salary?.dirty)" style="color: red; " >
-            
-            invalid  salary
-            <div *ngIf="salary.errors?.required" style="color: red; "> 
-                required  salary </div>
-            <div *ngIf="salary.errors?.minlength" style="color: red; "> 
-                min length requried is 4 </div>
+        <div class="form-group float-left col-md-6">
+            <label class="font-weight-bold" >salary</label >
+                <input class="form-control col  " #salary="ngModel" type="text" required minlength="4" [(ngModel)]="employee.salary" name="salary">
+            </div>
+            <div *ngIf="!salary?.valid && (salary?.touched || salary?.dirty)" style="color: red; " >
+                
+                invalid  salary
+                <div *ngIf="salary.errors?.required" style="color: red; "> 
+                    required  salary </div>
+                <div *ngIf="salary.errors?.minlength" style="color: red; "> 
+                    min length requried is 4 </div>
+    
+            </div>
+            <div class="col ">
+                <div class="col-md-6 float-left ">
+                <h3>Your certifications</h3>
+                <div ><span *ngFor="let cert of dummyList">
+                    {{cert.name}} 
+                     <span class="mx-1 text-black"><button type="button" (click)="removeCertificate(cert)" class=" btn  btn-sm fa fa-times" aria-hidden="true"></button></span>
+                    </span></div>
+                </div>
+                <div class="col-md-6 float-left ">
+                <div class="form-group float-left ">
+                    <div class="dropdown">
+                        <button type="button" class="btn  btn-default dropdown-toggle col-md border border-dark" data-toggle="dropdown">
+                          Add certification
+                        </button>
+                        <div class="dropdown-menu">
+                          <div class="" *ngFor="let certification of certifications">
+                            <input type="checkbox" (change)="onChangeCertificates(certification, $event.target)" />
+                            {{ certification.name }}
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                </div>
+               
+                </div>  
+                 <!-- the certificates col ennd -->
+            </div>
+    </div>
 
-        </div>
-        <button type="submit" class="btn btn-primary col-md-6   " [disabled]="!updateemployee.valid">Update Employee</button>
-        <br>
-        
+       </div>  
+    <div class="row">
+       <button type="submit" class="btn btn-primary col-md-4 text-center mx-auto mt-5" [disabled]="!updateemployee.valid">Update Employee</button>
+    </div>
     </form>
     
-        
+
 </div>
 

@@ -22,7 +22,7 @@ export class ListEmployeesComponent implements OnInit {
  reverse:boolean=false;
  currentPage:number=0;
  totalPages!:number;
- itemsPerPage:number=4;
+ itemsPerPage!:number;
  totalItems!:number;
  cpage:number=0;
 
@@ -36,6 +36,7 @@ export class ListEmployeesComponent implements OnInit {
     
     // init method which initilize when lis page render to router outlet
   ngOnInit() {
+    this.itemsPerPage=4;
     this.reloadData();
   }
 
@@ -88,6 +89,7 @@ export class ListEmployeesComponent implements OnInit {
 
     console.log(event);
     this.cpage=event-1;
+    console.log(this.cpage);
     this.currentPage=event;
     this.reloadData()
     console.log(this.itemsPerPage)
