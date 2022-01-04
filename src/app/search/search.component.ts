@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   search:Search = new Search();
   employees:Employee []=[];
   searchterm!:any;
-  cpage:any=0;
+  cpage:number=0;
   currentPage:number=0;
   itemsPerPage:any=4;
   totalItems!:any;
@@ -87,4 +87,15 @@ export class SearchComponent implements OnInit {
   updateEmployee(id:number){
     this.router.navigate(['update',id]);
   }
+
+  itemPerPage(){
+    if(this.employees.length>0){
+      this.reloadData();
+  }
+}
+clear(){
+  this.employees=[];
+  this.search=new Search();
+  this.ngOnInit();
+}
 }

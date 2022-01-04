@@ -25,6 +25,7 @@ export class ListEmployeesComponent implements OnInit {
  itemsPerPage!:number;
  totalItems!:number;
  cpage:number=0;
+ status:any;
 
 
 

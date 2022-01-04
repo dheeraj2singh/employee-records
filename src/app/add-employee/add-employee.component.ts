@@ -15,7 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   employee:Employee=new Employee();
   designations!:Observable<Designation[]>;
   submitted=false;
-  error!:any;
+  errors!:any;
   
    
 
@@ -37,7 +37,7 @@ export class AddEmployeeComponent implements OnInit {
   save(addform:NgForm) {
     
     this.addempServices.createEmployee(this.employee)
-      .subscribe(data=> {console.log(data),this.gotoList()},error => {console.log(error.error),this.error=error,this.submitted=false} );
+      .subscribe(data=> {console.log(data),this.submitted=true ,this.gotoList()},error => {console.log(error.error),this.errors=error.error,this.submitted=false} );
     this.employee = new Employee();
     
     addform.resetForm(); 
@@ -47,7 +47,6 @@ export class AddEmployeeComponent implements OnInit {
 
   //  on submit method which accepts the form 
   onSubmit(addform:NgForm) {
-    this.submitted = true;
     this.save(addform); 
     
     
@@ -56,7 +55,7 @@ export class AddEmployeeComponent implements OnInit {
   // function  which navigate to the lis page
   gotoList() {
     
-    this.router.navigate(["/",'list-employees']);
+    this.router.navigate(["/",'list-employees'],);
   }
 
 }

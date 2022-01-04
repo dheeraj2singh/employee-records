@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpService {
  
-  url:string="http://localhost:8080/Designation";
+  url:string="http://localhost:8080/designation";
   //  baseUrl:string="http://127.0.0.1:8080/employee";
    testUrl:string="http://localhost:8080/employee";
   // employees:Employee[]=[{id :1,name:"dheeraj",address:"delhi", email:"dheeraj@gmail.com",salary:25000,phone:1234567890},];
@@ -50,7 +50,7 @@ export class EmpService {
  // to get the list of employee
   getEmployeesList(page:number,itemsPerPage:number): Observable<any> {
     // return this.http.get(`${this.baseUrl}/`);
-    return this.http.get(`${this.testUrl}/list/`+page+'/items/'+itemsPerPage);
+    return this.http.get(`${this.testUrl}/`+page+`/`+itemsPerPage);
   }
 
   getDesignation(): Observable<any>{

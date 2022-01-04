@@ -8,12 +8,14 @@ import { Search } from 'src/app/search.model';
   providedIn: 'root'
 })
 export class SearchService {
-  testUrl:string="http://localhost:8080/employee";
+  testUrl:string="http://localhost:8080/employee/filters"; 
+   
   constructor(private http : HttpClient) { }
 
   searchEmployeesList(page:number,itemsPerPage:number,data:Search): Observable<any> {
+   
     // return this.http.get(`${this.baseUrl}/`);
-    return this.http.get(`${this.testUrl}/list/`+page+'/items/'+itemsPerPage);
+    return this.http.post(`${this.testUrl}?pageNumber=`+page+`&pageSize=`+itemsPerPage,data);
   }
 
   

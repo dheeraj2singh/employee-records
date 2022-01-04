@@ -1,35 +1,64 @@
-<div class="text-center"><h1>List Employees</h1></div>
+<div class="text-center  col"><h1>List Employees</h1></div>
 
 <div *ngIf="responcedeleted"><h1>deleted</h1></div>
 
-<i class='fa fa-search mx-3'></i><input class="form-control" type="text" name="searchterm" [(ngModel)]= "searchterm" class="col-md-4"  placeholder="Enter keyword  to Search">
-
-<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="handlePageChange($event)"></pagination-controls>
-<div class="form-group col-sm-2 mx-auto" >
-    <label for="sel1">items to show :</label>
-    <select (change)="onChange()" class="form-control" id="" [(ngModel)]="itemsPerPage">
-      <option value="1" >1</option>
-      <option value=2>2</option>
-      <option value="3">3</option>
-      <option selected value="4" >4</option>
-    </select>
-  </div>
-<table  class="table table-bordered table-striped hover">
-    <tr>
-        <th (click)="sortData('id')" >Id <i class="fa fa-fw fa-sort"></i></th>
-        <th (click)="sortData('name')" > Name<i class="fa fa-fw fa-sort"></i></th>
-        <th>Phone</th>
-        <th class="text-info">Action</th>
-        
-    </tr>
+<div class="row ">
+  <div class="col-lg-6 mx-auto ">
+    <div class="row mx-2">
+      <i class='fa fa-search col-md-1 my-3 text-center' aria-hidden="true"></i>
+        <input class="form-control col-md-8 " type="text" name="searchterm" [(ngModel)]= "searchterm"  placeholder="Enter keyword  to Search">    
+    </div>
     
-    <tr *ngFor="let emp of employees  | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage,currentPage,totalItems}  "> 
-        <td>{{emp.id}}</td>
-        <td>{{emp.name}}</td>
-        <td>{{emp.phone}}</td>
-        <td><button type="button" class="btn btn-info mx-2" (click)=employeeDetails(emp.id) >View</button>
-        <button type="button" class="btn btn-danger mx-2" (click)=deleteEmployee(emp.id) >Delete</button>
-        <button type="button" class="btn btn-success mx-2" (click)="updateEmployee(emp.id)">Edit</button></td>
-    </tr>
-</table>
-<pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="handlePageChange($event)"></pagination-controls>
+    </div>   
+     
+        <div class="form-group col-lg-2 mx-auto " >
+          <div class="row mx-3">
+            <div class=" co-lg-8 my-2  text-center ">
+          <label for="sel1" class="">items to show :</label>
+        </div>
+        <div class="col-lg-4 "></div>
+          <select class="col-lg-4" (change)="reloadData()" class="form-control"  id="sel1" [(ngModel)]="itemsPerPage">
+            <option value="1" >1</option> 
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option selected value="4" >4</option>
+          </select>
+        </div>
+        </div>
+  
+        <div class="col-lg-4  ">
+          <pagination-controls class="col text-center my-5" (pageChange) ="handlePageChange($event)"></pagination-controls>
+        </div>
+      
+  
+    </div>
+      
+      <div class="col">
+      <table  class="table table-hover">
+        <thead>
+          <tr>
+              <th (click)="sortData('id')" >Id <i class="fa fa-fw fa-sort"></i></th>
+              <th (click)="sortData('name')" > Name<i class="fa fa-fw fa-sort"></i></th>
+              <th>Phone</th>
+              <th class="text-center">Action</th>
+              
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees  | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage,currentPage,totalItems}  "> 
+              <td>{{emp.id}}</td>
+              <td>{{emp.name}}</td>
+              <td>{{emp.phone}}</td>
+              <td><div class="row">
+      
+                <button type="button" class="btn btn-info mx-2 col-sm-3 my-1 rounded" (click)=employeeDetails(emp.id) >View</button>
+              <button type="button" class="btn  btn-danger mx-2 col-sm-3 my-1" (click)=deleteEmployee(emp.id) >Delete</button>
+              <button type="button" class="btn btn-success mx-2 col-sm-3 my-1" (click)="updateEmployee(emp.id)">Edit</button>
+            
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <pagination-controls class="col-lg-3 text-center float-right mx-3" (pageChange) ="handlePageChange($event)"></pagination-controls>
+   

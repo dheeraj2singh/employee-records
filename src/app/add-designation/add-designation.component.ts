@@ -28,6 +28,7 @@ export class AddDesignationComponent implements OnInit {
 
   submit(): void {
     this.createDesig.createDesig(this.desig).subscribe(data =>{this.refesh(),console.log(this.desig)});
+    this.desig=new Designation()
   }
 
  

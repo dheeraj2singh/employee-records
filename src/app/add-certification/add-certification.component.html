@@ -1,22 +1,25 @@
 <!-- Form to Grab new EMPLOYEE with Validations using Templete Validations -->
-<button style="max-width:20%" class="btn btn-info" routerLink="/">Back</button>
-<div class="col-md-8 mx-auto">
+
+<h1 class="col-md-4 mx-auto text-center">Add Certification</h1>
+<div class="row mx-5">
+<div class="mx-auto col-md-6 text-center">
 <form   #addcertification="ngForm" (submit)= "submit()" >
   
-  <h1 class="col-md-4 mx-auto">Add Certification</h1>
+ 
   <div class=" ">
-    <label class="form-label font-weight-bold col-md-4 mx-auto">Certification  Name :  </label>
-    <input type="text" required #name="ngModel" class="form-control col-md-4 mxx-auto my-2" name="Name" [(ngModel)]= "cert.name">
+    <label class="form-label font-weight-bold col-md-6 mx-auto">Certification  Name :  </label>
+    <input type="text"  #name="ngModel" class="form-control col-md-6 mx-auto my-2" name="Name" [(ngModel)]= "cert.name">
     <span style="color:red" *ngIf="name.invalid && name.touched">Enter certification</span>
     
   </div>
   
-  <button [disabled]="addcertification.invalid"  type="submit" class="btn btn-success col-md-4 mx-auto">Add</button>
-  </form>
+  <button [disabled]="addcertification.invalid"  type="submit" class="btn btn-success col-md-6 mx-auto">Add</button><br>
+  <button  class="btn btn-info col-md-6 mx-auto my-1 block" routerLink="/">Back</button>
+</form>
   <br><br>
 </div>
 
-  <table class="container">
+  <table class="container col-md-6 table table-hover">
     <thead style="text-align: center;">
       <tr>
         <th (click)= "sort('id')">#<i class="fa fa-fw fa-sort"></i></th>
@@ -35,9 +38,10 @@
    <!-- Action Buttons created for Viewing, updating and Deleting an Employee -->
   
         <td>
-          <a  class="btn btn-danger" (click)= "delete(certification.id)">Remove</a>
+          <a  class="btn btn-danger text-white" (click)= "delete(certification.id)">Remove</a>
         </td>
       </tr>
     </tbody>
     
   </table>
+</div>

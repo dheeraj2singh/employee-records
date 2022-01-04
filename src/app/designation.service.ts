@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DesignationService {
 
   
-  D_url=' http://localhost:8080/Designation'
+  D_url=' http://localhost:8080/designation'
 
   constructor(private http:HttpClient) { }
 

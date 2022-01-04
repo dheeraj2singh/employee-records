@@ -1,20 +1,20 @@
-
+<h1 class="text-center">Search Employees</h1>
 <form class="">
     <div class= "container row text-left my-2 mx-auto">
 
-    <div class="form-group col-md-3 mx-auto">
+    <div class="form-group col-lg-3 mx-auto">
         <label class="font-weight-bold " for="name">name:</label >
         <input class="form-control   "  #name="ngModel"  minlength="4" type="text" [(ngModel)]="search.name" name="name">
     </div>
    
-        <div class="form-group col-md-3 mx-auto">
+        <div class="form-group col-lg-3 mx-auto">
     <label class="font-weight-bold">Address</label >
         <input class="form-control  " #address="ngModel" type="text"   [(ngModel)]="search.address" name="address">
   
   </div>
    
 
-  <div class="form-group col-md-3 mx-auto ">
+  <div class="form-group col-lg-3 mx-auto ">
     <label for="designation" class="font-weight-bold" >Designation</label><br>
 <select  id="" class="browser-default custom-select " [(ngModel)]="search.designation"  name="id">
    <option value="--select--" disabled >--select--</option>
@@ -23,46 +23,60 @@
     </select>
 </div>
   
-    <div class="form-group col-md-3 mx-auto ">
+    <div class="form-group col-lg-3 mx-auto ">
     <label class="font-weight-bold">salary</label >
-        <input class="form-control c" #salary="ngModel" type="text"  minlength="10" [(ngModel)]="search.salary" name="salary">
+        <input class="form-control " #salary="ngModel" type="text"  minlength="10" [(ngModel)]="search.salary" name="salary">
 </div>
    
-
+<div class="mx-auto text-center col-lg-6">
+    
+  <button type="submit" class="btn btn-primary col-lg-6 " (click)="submit()">search</button><br>
+  <button type="submit" class="btn btn-danger col-lg-6  my-1 " (click)="clear()">clear</button>
+  
+  </div>
    
 </div>
 <!-- button  -->
-<div class="row"> 
-<button type="submit" class="btn btn-primary col-md-3 mx-auto" (click)="submit()">search</button>
-</div>
+
+
+
+
 </form>
 
 
-<br><br> <br>
-
-<div class="container row">
-    
-    <div class="col-md-5 my-4 ">
-        <div class="row">
-        <i class='fa fa-search col-sm-1 my-3'></i>
-      <input class="form-control col " type="text" name="searchterm"  [(ngModel)]= "searchterm"   placeholder="Enter keyword  to Search"> 
-    </div>
-    </div>
-    <div class="form-group col-md-2 mx-auto float-right" >
-        <label for="sel1">items to show :</label>
-        <select (change)="reloadData()" class="form-control" id="" [(ngModel)]="itemsPerPage">
-          <option value="1" >1</option>
+<br>
+<div class="row ">
+<div class="col-lg-6 mx-auto ">
+  <div class="row mx-2">
+    <i class='fa fa-search col-md-1 my-3 text-center' aria-hidden="true"></i>
+      <input class="form-control col-md-8 " type="text" name="searchterm" [(ngModel)]= "searchterm"  placeholder="Enter keyword  to Search">    
+  </div>
+  
+  </div>   
+   
+      <div class="form-group col-lg-2 mx-auto " >
+        <div class="row mx-3">
+          <div class=" co-lg-8   text-center ">
+        <label for="sel1" class="">items to show :</label>
+      </div>
+      <div class="col-lg-4 "></div>
+        <select class="col-lg-4" (change)="itemPerPage()" class="form-control"  id="sel1" [(ngModel)]="itemsPerPage">
+          <option value="1" >1</option> 
           <option value="2">2</option>
-          <option value="3 ">3 </option>
+          <option value="3">3</option>
           <option selected value="4" >4</option>
         </select>
       </div>
-    <div class="col-md-4">
-        <br><br>
-        <pagination-controls  (pageChange) ="handlePageChange($event)"></pagination-controls>
-    </div>
-</div>
-      <br><br>
+      </div>
+
+      <div class="col-lg-4  ">
+        <pagination-controls class="col text-center my-5" (pageChange) ="handlePageChange($event)"></pagination-controls>
+      </div>
+    
+
+  </div>
+    
+    <div class="table-responsive container-fluid">
     <table  class="table table-bordered table-striped hover">
         <tr>
             <th (click)="sortData('id')" >Id <i class="fa fa-fw fa-sort"></i></th>
@@ -72,21 +86,18 @@
             
         </tr>
         
-        <tr *ngFor="let emp of employees  | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage,currentPage,totalItems} " > 
-            <td >{{emp.id}}</td>
+        <tr *ngFor="let emp of employees  | orderBy:key:reverse | filter:searchterm| paginate:{itemsPerPage,currentPage,totalItems}  "> 
+            <td>{{emp.id}}</td>
             <td>{{emp.name}}</td>
-            <td>{{emp.salary}}</td>
-            <td><button type="button" class="btn btn-info mx-2"  (click)="employeeDetails(emp.id)">View</button>
-            <button type="button" class="btn btn-danger mx-2" (click)="deleteEmployee(emp.id)" >Delete</button>
-            <button type="button" class="btn btn-success mx-2" (click)="updateEmployee(emp.id)">Edit</button></td>
+            <td>{{emp.phone}}</td>
+            <td><div class="row">
+    
+              <button type="button" class="btn btn-info mx-2 col-sm-3 my-1" (click)=employeeDetails(emp.id) >View</button>
+            <button type="button" class="btn  btn-danger mx-2 col-sm-3 my-1" (click)=deleteEmployee(emp.id) >Delete</button>
+            <button type="button" class="btn btn-success mx-2 col-sm-3 my-1" (click)="updateEmployee(emp.id)">Edit</button>
+          
+          </div></td>
         </tr>
     </table>
-    <pagination-controls style="float:right;padding-right: 70px;" (pageChange) ="handlePageChange($event)"></pagination-controls>
-    
-
-
-
-
-
-
-<!-- row ends -->
+    </div>
+    <pagination-controls class="col-lg-3 text-center" (pageChange) ="handlePageChange($event)"></pagination-controls>

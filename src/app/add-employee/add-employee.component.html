@@ -1,7 +1,7 @@
 
-<h1 class="col-md-4 mx-auto ">Add New Employee</h1>
+<h1 class="col-md-4 mx-auto text-center">Add New Employee</h1>
 <div class="submitted text-success text-center" *ngIf="submitted"><h2>Employee is added</h2></div>
-<div class="submitted text-success text-center" *ngIf="true"><h2>{{error</h2></div>
+<div class="submitted text-success text-center" *ngIf="!submitted"><h2>{{errors}}</h2></div>
 <div class="col-md-6 mx-auto">
    
     <form  #addemployee="ngForm" (ngSubmit)="onSubmit(addemployee)" novalidate >

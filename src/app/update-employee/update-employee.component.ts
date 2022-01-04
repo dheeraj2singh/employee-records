@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { Designation } from '../designation.model';
 import { CeritificationService } from '../ceritification.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { data } from 'jquery';
+import { data, map } from 'jquery';
 
 @Component({
   selector: 'app-update-employee',
@@ -24,6 +24,7 @@ export class UpdateEmployeeComponent implements OnInit {
   designations!:Observable<Designation[]>;
   certifications!:Certification[];
   dummyList:Certification[]=[];
+   
   
   constructor(private updateservice:EmpService,private route:ActivatedRoute,private router:Router,private certService:CeritificationService) { 
    
@@ -68,7 +69,7 @@ export class UpdateEmployeeComponent implements OnInit {
   
    console.log(target.checked,cert);
    if(target.checked){
-
+    
    this.dummyList.push(cert) ;
    console.log(this.dummyList);
    
