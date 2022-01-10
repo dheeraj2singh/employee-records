@@ -1,37 +1,53 @@
-<ul class="">
-  <li class="text-white  float-left d " ><a href="/" class="d" >Employee Records</a></li>
-<div class="float-right">
-  <li class=""><a routerLink="/list-employees">List Employees</a></li>
-  <li class=""><a routerLink="/search">Search</a></li>
+<!-- <div class="row mx-auto">
+
+<ul class="col">
+  <li class="text-white  float-left round " ><a  class="" >Employee Records</a></li>
+<div class="float-right ">
+  <li class=""><a routerLink="/list-employees" class="round ">List Employees</a></li>
+  <li class=""><a class="round " routerLink="/search">Search</a></li>
       <li  class=" "><a routerLink="/add-employee">Add Employee</a></li>
       <li  class=" "><a routerLink="/add-designation">Add Designation</a></li>
       <li  class=" "><a routerLink="/add-certification">Add Certification</a></li>
-    
+      <div class="dropdown">
+        <button type="button" class="btn btn-dark dropdown-toggle my-2 " data-toggle="dropdown">Add</button>
+        <div class="dropdown-menu bg-dark ">
+          <a class="dropdown-item  text-white"  routerLink="/add-employee">Add Employee</a>
+          <a  class="dropdown-item text-white" routerLink="/add-designation">Add Designation</a>
+          <a  class="dropdown-item text-white" routerLink="/add-certification">Add Certification</a>
+        </div>
+      </div>
     </div>
+    
   </ul>
 
+</div> -->
 
 
-  
-  <!-- <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Employee Records</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class=""><a routerLink="/list-employees">List Employees</a></li>
-          <li class=""><a routerLink="/search">Search</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Add
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li  class=" "><a routerLink="/add-employee">Add Employee</a></li>
-      <li  class=" "><a routerLink="/add-designation">Add Designation</a></li>
-      <li  class=" "><a routerLink="/add-certification">Add Certification</a></li>
-          </ul>
-        </li>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md  ">
+
+    <a class="navbar-brand" href="/">Employee-records</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         
-      </ul>
-    </div>
-  </nav> -->
-  
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mx-2">
+        <li class="nav-item "><a  routerLink="/list-employees" class="nav-link ">List Employees</a></li>
+        <li class="nav-item"><a class="nav-link " routerLink="/search">Search</a></li>
+      <li  class="nav-item ">
+        <div class="dropdown">
+          <a  class="nav-link  dropdown-toggle  " data-toggle="dropdown">Add</a>
+          <div class="dropdown-menu bg-dark justify-content-center ">
+            <a class="dropdown-item  text-white bg-dark"  routerLink="/add-employee">Add Employee</a>
+            <a  class="dropdown-item  text-white bg-dark" routerLink="/add-designation">Add Designation</a>
+            <a  class="dropdown-item  text-white bg-dark" routerLink="/add-certification">Add Certification</a>
+          </div>
+        </div>
+      </li>    
+    </ul>
+        </div>
+
+
+    
+  </nav> 

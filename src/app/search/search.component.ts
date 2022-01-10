@@ -95,7 +95,7 @@ export class SearchComponent implements OnInit {
 }
 clear(){
   this.employees=[];
-  this.search=new Search();
-  this.ngOnInit();
+  this.totalItems=0;
+  
 }
 }
